@@ -20,6 +20,9 @@
                 <a class="nav-link" href="/blog">Blog</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="/guestbook">GuestBook</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
               </li>
             </ul>

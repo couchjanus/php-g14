@@ -16,3 +16,4 @@
     const SLOGAN = 'Lets Build Cool Site';
 
     define('LOGS', ROOT.'/logs');
+    define('DB', ROOT.'/db');

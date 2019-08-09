@@ -10,8 +10,8 @@
                 <div class="card-body">
                     <form action="" method="POST">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter name" required>
+                            <label for="username">Name</label>
+                            <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp" placeholder="Enter name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email address</label>
@@ -46,15 +46,34 @@
 
     </div>
     <div class="col">
-        <div class="card">
+        <div class="card comment-wrapper">
             <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Comments
             </div>
             <div class="card-body">
-                <?php
-                foreach ($comments as $key => $value) {
-                    echo("<div class='top'><b>User ".$value[0]." </b> <a href='mailto:".$value[1]."'>".$value[1]."</a>  Added this: </div><div class='comment'>".strip_tags($value[2])."</div>"."<p>At ".strip_tags($value[3])."</p><hr>");
-                }
-                ?>
+            
+            <?php if (count($comments)>0):
+                printf("<h3>В Guest Book находится %d Comments</h3>", count($comments));?>
+                <ul class="media-list">
+                  <?php foreach ($comments as $row):?>
+
+                    <li class="media">
+                        <a href="#" class="pull-left">
+                            <img src="/assets/images/user.png" alt="" class="img-circle">
+                        </a>
+                        <div class="media-body">
+                            <span class="text-muted pull-right">
+                                <small class="text-muted"><?php echo $row["created_at"]?></small>
+                            </span>
+                            <strong class="text-success"><?php echo $row["username"]?></strong>
+                            <p>
+                            <?php echo $row["message"]?>
+                            </p>
+                        </div>
+                    </li>
+                  <?php endforeach;?>
+                </ul>
+            <?php else: echo "<h2>No comments yet.... </h2>";
+            endif;?>
             </div>
         </div>
     </div>    

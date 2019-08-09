@@ -48,9 +48,21 @@
     margin-top: 20px;
 }
 footer {
-    background: #025a1ff1;
+    /* background: #025a1ff1; */
     padding: 40px;
 }
 footer a {
     color: #fff!important
+}
+
+.comment-wrapper .media-list .media img {
+    width:35px;
+    height:35px;
+    margin-right: 1em;
+    border:2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    border-bottom:1px dashed #efefef;
+    margin-bottom:25px;
 }

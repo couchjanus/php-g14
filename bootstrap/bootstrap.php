@@ -25,10 +25,8 @@ function view($path, $data = null)
 	if ( $data ) {
 		extract($data);
 	}
-
 	$path .= '.php';
-
-	include realpath(__DIR__)."/../app/Views/layouts/app.php";	
+	return require VIEWS."/layouts/app.php";
 }
 
 // ============================================

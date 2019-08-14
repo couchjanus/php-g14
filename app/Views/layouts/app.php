@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<?php require_once VIEWS.'/layouts/partials/_head.php'; ?>
-
+<head>
+  <?php require_once VIEWS.'/layouts/partials/_head.php'; ?>
+</head>
 <body>
 
   <div class="wrapper">
@@ -17,15 +17,10 @@
     </div>
 
   </div>
- 
   
   <div class="overlay"></div>
-
   <?php require_once VIEWS.'/layouts/partials/_templates.php'; ?>
-  
-  <script src="/assets/js/all.min.js"></script>
-  <script src="/assets/js/main.js"></script>  
-  <script src="/assets/js/src.js"></script>
+  <?php require_once VIEWS.'/layouts/partials/shared/_scripts.php'; ?>
   
 </body>
 </html>

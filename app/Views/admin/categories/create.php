@@ -10,6 +10,14 @@
                     <label for="username">Name</label>
                     <input type="text" class="form-control" id="name" name="name" aria-describedby="categoryHelp" placeholder="Enter Category Name" required>
                 </div>
+
+                <div class="form-group">
+                    <label for="status" class="col-sm-2 control-label">Status</label>
+                    <select name="status" class="form-control">
+                    <option value="1" selected>Отображается</option>
+                    <option value="0">Скрыт</option>
+                    </select>
+                </div>
                 
                 <div class="mx-auto">
                     <button type="submit" class="btn btn-primary text-right">Save</button>

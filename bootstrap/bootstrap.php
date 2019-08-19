@@ -22,14 +22,12 @@ function conf($mix)
 	return include(realpath(__DIR__)."/../config/".$mix.".php"); 
 }
 
-function view($path, $data = null, $layout='app') 
+function getURI()
 {
-	if ( $data ) {
-		extract($data);
-	}
-	$path .= '.php';
-	return require VIEWS."/layouts/${layout}.php";
+    if (isset($_SERVER['REQUEST_URI']) and !empty($_SERVER['REQUEST_URI']))
+        return trim($_SERVER['REQUEST_URI'], '/');
 }
+
 // ============================================
 require_once realpath(__DIR__).'/../config/app.php';
 
@@ -37,4 +35,8 @@ require_once CORE.'/View.php';
 require_once CORE.'/Controller.php';
 require_once CORE.'/Helper.php';
 require_once CORE.'/Connection.php';
+require_once CORE.'/Model.php';
 require_once CORE.'/Router.php';
+
+$router = new Router();
+$router->direct(getURI());

@@ -1,5 +1,6 @@
 <?php
 
+// Make your model available
 require_once MODELS.'/Category.php';
 
 class CategoryController extends Controller
@@ -11,8 +12,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        // Create an instance
         $categories = new Category();
+
+        // Get the list of Categories
         $categories = $categories->index();
+
         $title = 'Category List Page ';
         $this->view->render('admin/categories/index', compact('title', 'categories'), 'admin');
     }

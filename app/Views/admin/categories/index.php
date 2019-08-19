@@ -15,8 +15,8 @@
               <tbody>
                   <?php foreach ($categories as $category):?>
                     <tr>
-                    <td><?php echo $category['id'];?></td>
-                    <td><?php echo $category['name'];?></td>
+                    <td><?php echo $category->id;?></td>
+                    <td><?php echo $category->name;?></td>
                     </tr>
                 <?php endforeach;?>
               </tbody>

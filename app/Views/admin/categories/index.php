@@ -15,8 +15,13 @@
               <tbody>
                   <?php foreach ($categories as $category):?>
                     <tr>
-                    <td><?php echo $category->id;?></td>
-                    <td><?php echo $category->name;?></td>
+                      <td><?php echo $category->id;?></td>
+                      <td><?php echo $category->name;?></td>
+                      <td>
+                        <a href="/admin/categories/show/<?=$category->id?>"><button class="btn btn-default"><span data-feather="eye"></span> View</button></a>
+                        <a href="/admin/categories/edit/<?=$category->id?>"><button class="btn btn-primary"><span data-feather="edit"></span> Edit</button></a>
+                        <a href="/admin/categories/delete/<?=$category->id?>"><button class="btn btn-danger"><span data-feather="delete"></span> Delete</button></a>
+                      </td>
                     </tr>
                 <?php endforeach;?>
               </tbody>

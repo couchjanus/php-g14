@@ -7,8 +7,6 @@ class Category extends Model
     **/
     public static function index() 
     {
-        // $stmt = self::query("SELECT * FROM categories ORDER BY id ASC");
-        // return $stmt->fetchAll(PDO::FETCH_CLASS);
         return self::query("SELECT * FROM categories ORDER BY id ASC")->fetchAll(PDO::FETCH_CLASS);
     }
     
@@ -29,5 +27,46 @@ class Category extends Model
         $stmt->bindParam(1, $opts[0]);
         $stmt->bindParam(2, $opts[1]);
         $stmt->execute();
+    }
+
+    /* Выбор категории по id  */
+    // public static function getById($id)
+    // {
+    //     $stmt = self::prepare("SELECT * FROM categories  WHERE id = :id");
+    //     $stmt->bindParam(':id', $id);
+    //     $stmt->execute();
+    //     return $stmt->fetch(PDO::FETCH_ASSOC);
+    // }
+
+    // public function getById($id){
+	// 	$sql="SELECT * FROM categories WHERE id = :id";
+	// 	$q = self::prepare($sql);
+    //     $q->execute([':id'=>$id]);
+	// 	return $q->fetch(PDO::FETCH_ASSOC);
+	// }
+
+    public function getById($id){
+		$sql="SELECT * FROM categories WHERE id = ?";
+		$q = self::prepare($sql);
+        $q->execute([$id]);
+		return $q->fetch(PDO::FETCH_ASSOC);
+	}
+
+    public function destroy($id){
+		$sql="DELETE FROM categories WHERE id=?";
+		$q = self::prepare($sql);
+		$q->execute([$id]);
+		return true;	
+    }
+    
+    public static function update($id, $options)
+    {
+        $sql = "UPDATE categories
+                SET
+                    name = :name,
+                    status = :status
+                WHERE id = :id";
+        $stmt = self::prepare($sql);
+        $stmt->execute([':id' => $id, ':name' => $options['name'], ':status' => $options['status']]);
     }
 }

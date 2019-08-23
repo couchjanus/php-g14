@@ -30,21 +30,7 @@ class Category extends Model
     }
 
     /* Выбор категории по id  */
-    // public static function getById($id)
-    // {
-    //     $stmt = self::prepare("SELECT * FROM categories  WHERE id = :id");
-    //     $stmt->bindParam(':id', $id);
-    //     $stmt->execute();
-    //     return $stmt->fetch(PDO::FETCH_ASSOC);
-    // }
-
-    // public function getById($id){
-	// 	$sql="SELECT * FROM categories WHERE id = :id";
-	// 	$q = self::prepare($sql);
-    //     $q->execute([':id'=>$id]);
-	// 	return $q->fetch(PDO::FETCH_ASSOC);
-	// }
-
+    
     public function getById($id){
 		$sql="SELECT * FROM categories WHERE id = ?";
 		$q = self::prepare($sql);

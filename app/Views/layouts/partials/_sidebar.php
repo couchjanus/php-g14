@@ -15,7 +15,7 @@
 
       <div class="footer">
         <div class="counts">
-          <p>Amount: 123</p>
+          <p>Amount: </p>
           <p class="cart-total">Total: $<span>555</span></p>
         </div>
 

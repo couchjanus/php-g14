@@ -16,7 +16,7 @@
     <div class="col-md-4">
       <div class="card mb-4 box-shadow">
         <div class="win"><h2>You are win!</h2></div>
-        <img class="card-img-top" src="/03.fd463baf.jpg" alt="Card image cap">
+        <img class="card-img-top" src="" alt="Card image cap">
         <div class="card-body">
           <h4 class="float-right">$<span class="product-price">55.00</span></h4>
           <h4 class="product-name">Fierst product</h4>

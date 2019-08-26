@@ -47,7 +47,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <input type="file" id="fileElem" multiple accept="image/*"
-                                            name="image">
+                                            name="images[]">
                                     </div>
                                     <div class="col-md-4">
                                         <p>Drop Picture Here</p>

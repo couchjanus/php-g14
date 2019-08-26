@@ -18128,11 +18128,9 @@ function showCart() {
     document.querySelector('.cart-items').append(document.importNode(productInCart(template, item), true));
   });
   updateTotal();
-} // const url = 'https://api.myjson.com/bins/gnf45';
-// const url = 'https://my-json-server.typicode.com/couchjanus/db/products';
+} 
 
-
-var url = 'http://localhost:3000/products';
+var url = '/api/shop';
 
 (function () {
 

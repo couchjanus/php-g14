@@ -8,7 +8,8 @@ return [
 
    'api/shop'=> 'HomeController@getProducts',
    'api/shop/{id}'=> 'HomeController@getProduct',
-
+   'api/product/{id}'=> 'HomeController@getProductItem',
+   
    'admin' => 'Admin\DashboardController@index',
    'admin/categories' => 'Admin\CategoryController@index',
    'admin/categories/create' => 'Admin\CategoryController@create',

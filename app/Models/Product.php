@@ -82,6 +82,13 @@ class Product extends Model
         return $stmt->fetch(PDO::FETCH_BOTH);
     }
 
+    public static function getProductBySlug($id)
+    {
+        $stmt = self::prepare("SELECT t1.*, t2.picture as picture FROM products t1 JOIN (SELECT resource, resource_id, group_concat(filename) picture FROM pictures group by resource_id) AS t2 ON t2.resource = 'products' AND t1.id = t2.resource_id WHERE t1.id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_BOTH);
+    }
     /**
      * Общее кол-во товаров в магазине
      *

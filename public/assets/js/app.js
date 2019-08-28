@@ -14,14 +14,15 @@ function makeProductItem($template, product) {
 
 function slideItem(content, item, i) {
     content.querySelector('.carousel-item__title').textContent = item.name;
+    // content.querySelector('.carousel-item__subtitle').textContent = item.subtitle[i];
     content.querySelector('.carousel-item__subtitle').textContent =
-        item.subtitle[i];
-
+        item.name;
+        
     content.querySelector('.carousel-item__description').textContent =
         item.description;
 
     content.querySelector('.carousel-item__image').style.backgroundImage =
-        'url(images/pictures/' + item.picture[i] + ')';
+        'url(/images/products/' + item.picture.split(",")[i] + ')';
 
     return content;
 }
@@ -284,7 +285,7 @@ const url = '/api/shop';
                             .querySelector('.win')
                             .getAttribute('productId');
 
-                        fetch(url + '/' + id).then(response => {
+                        fetch('api/product/' + id).then(response => {
                             response.json().then(data => {
                                 let carouselItem = document.getElementById(
                                     'carouselItem'
@@ -293,8 +294,10 @@ const url = '/api/shop';
                                 let detailTemplate = document.getElementById(
                                     'productDetail'
                                 ).content;
+                                
+                                let pictures = data.picture.split(",");
 
-                                for (let i = 0; i < data.picture.length; i++) {
+                                for (let i = 0; i < pictures.length; i++) {
                                     detailTemplate
                                         .querySelector('.carousel-detail')
                                         .append(

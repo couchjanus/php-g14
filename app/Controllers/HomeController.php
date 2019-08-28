@@ -21,4 +21,11 @@ class HomeController extends Controller
         $product = (new Product())->getBySlug($id);
         echo json_encode($product);
     }
+
+    public function getProductItem($vars)
+    {
+        extract($vars);
+        $product = (new Product())->getProductBySlug($id);
+        echo json_encode($product);
+    }
 }

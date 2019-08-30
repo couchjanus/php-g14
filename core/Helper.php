@@ -22,4 +22,20 @@ class Helper
             break;
         }
     }
+    /**
+     * 
+     *Запись пользователя в сессию
+     *
+     * @param $userId
+     */
+    
+    public static function auth($user)
+    {
+        session_regenerate_id(true);
+        Session::set('id', session_id());
+        Session::set('userId', $user->id);
+        Session::set('email', $user->email);
+        Session::set('logged', true);
+        setcookie("userId", $user->id);
+    }
 }

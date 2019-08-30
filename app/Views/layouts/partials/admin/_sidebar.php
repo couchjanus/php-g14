@@ -14,15 +14,27 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/admin/products">
                     <span data-feather="shopping-cart"></span>
                     Products
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/admin/categories">
+                    <span data-feather="file"></span>
+                    Categories
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/roles">
+                    <span data-feather="file"></span>
+                    Roles
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/users">
                     <span data-feather="users"></span>
-                    Customers
+                    Users
                 </a>
             </li>
             <li class="nav-item">

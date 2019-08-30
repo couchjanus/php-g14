@@ -27,6 +27,17 @@
               </li>
             </ul>
           </div>
+          
+          <a href="/login"><button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <span><i class="fas fa-user-plus"></i></span>
+          </button></a>
+          <a href="/profile"><button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fas fa-address-card"></i>
+          </button></a>
+          <a href="/logout"><button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <i class="fas fa-sign-out-alt"></i>
+          </button></a>
+
           <button type="button" id="sidebarCollapse" class="btn btn-primary">
             <i class="fas fa-align-left"></i>
             <span><i class="fas fa-shopping-cart"></i></span>

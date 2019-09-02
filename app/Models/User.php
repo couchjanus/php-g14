@@ -4,10 +4,14 @@
  */
 class User extends Model
 {
+    public function __construct()
+	{
+        parent::__construct();
+	}
+
     /**
      * @return users list
     **/
-
     public static function index() 
     {
         return self::query("SELECT * FROM users ORDER BY id ASC")->fetchAll(PDO::FETCH_CLASS);
@@ -22,19 +26,11 @@ class User extends Model
         $stmt->bindParam(':email', $options['email'], PDO::PARAM_STR);
         $stmt->bindParam(':role', $options['role'], PDO::PARAM_INT);
         
-        /**
-         * Использование password_hash() с ручным заданием стоимости
-         * Увеличиваем алгоритмическую стоимость BCRYPT до 12.
-         * Но это никак не скажется на длине полученного результата, она останется 60 символов
-         */
         $costs = [
             'cost' => 12,
         ];
         $hash = password_hash($options['password'], PASSWORD_BCRYPT, $costs);
         $stmt->bindParam(':password', $hash, PDO::PARAM_STR);
-
-        // $stmt->bindParam(':password', $options['password'], PDO::PARAM_STR);
-        
         return $stmt->execute();
     }
 
@@ -48,7 +44,6 @@ class User extends Model
         $passwordFromDatabase = $stmt->fetch(PDO::FETCH_ASSOC)['password'];
         $password = $options['password'];
         if (!password_verify($password, $passwordFromDatabase)) {
-          // update hash from databse - replace old hash $passwordFromDatabase with new hash $newPasswordHash
             $password = password_hash($options['password'], PASSWORD_DEFAULT, ["cost" => 12]);
         }
         $sql = "UPDATE users
@@ -67,13 +62,12 @@ class User extends Model
         return $stmt->execute();
     }
     
-    /* Выбор user по id  */
     public static function getById($id)
     {
         $stmt = self::prepare("SELECT * FROM users  WHERE id = :id");
         $stmt->bindParam(':id', $id);
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_BOTH);
+        return $stmt->fetch(PDO::FETCH_OBJ);
     }
     public static function destroy($id)
     {
@@ -105,5 +99,4 @@ class User extends Model
         }
         return false;
     }
- 
 }

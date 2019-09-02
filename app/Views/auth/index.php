@@ -47,6 +47,12 @@
                     </label>
                     <input type="password" name="password" required autocomplete="off" />
                 </div>
+                <div class="field-wrap">
+                    <label>
+                        Remember Me
+                    </label>
+                    <input type="checkbox" name="remember_me" autocomplete="off">
+                </div>
                 <p class="forgot"><a href="#">Forgot Password?</a></p>
                 <button type="submit" class="button button-block" />Log In</button>
             </form>

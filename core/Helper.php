@@ -9,7 +9,6 @@ class Helper
         exit();
     }
 
-
     // Вместо числового статуса категории, отображаем определенную строку
     public static function getStatusText($status)
     {
@@ -22,20 +21,13 @@ class Helper
             break;
         }
     }
-    /**
-     * 
-     *Запись пользователя в сессию
-     *
-     * @param $userId
-     */
-    
-    public static function auth($user)
+
+    public static function isGuest()
     {
-        session_regenerate_id(true);
-        Session::set('id', session_id());
-        Session::set('userId', $user->id);
-        Session::set('email', $user->email);
-        Session::set('logged', true);
-        setcookie("userId", $user->id);
+        if (isset($_COOKIE['Logged'])) {
+            return false;
+        }
+        return true;
     }
+   
 }

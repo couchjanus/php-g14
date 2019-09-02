@@ -31,22 +31,23 @@ function getURI()
 // ============================================
 require_once realpath(__DIR__).'/../config/app.php';
 
-// Запускаем сессию
-// session_start();
-// Передача опций в session_start()
-// Переопределение времени жизни cookie
-// Устанавливаем время жизни равным одному дню.
-// session_start([
-//    'cookie_lifetime' => 86400,
-// ]);
-
 require_once CORE.'/Session.php';
 require_once CORE.'/View.php';
 require_once CORE.'/Controller.php';
 require_once CORE.'/Helper.php';
 require_once CORE.'/Connection.php';
 require_once CORE.'/Model.php';
+require_once CORE.'/Request.php';
+
 require_once CORE.'/Router.php';
-Session::init();
-$router = new Router();
-$router->direct(getURI());
+Session::init('Init');
+
+// $router = new Router();
+// $router->direct(getURI());
+
+const ROUTES = CONFIG.'/routes'.EXT;
+
+Router::init(ROUTES)->direct(getURI());
+
+// Router::load(ROUTES)
+//     ->direct(Request::uri(), Request::method());

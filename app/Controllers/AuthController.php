@@ -10,7 +10,7 @@ class AuthController extends Controller
 {
     private $logged_in = false;
     private $email;
-    private $userId;
+    private $user_id;
     
     //array to hold all of the errors 
     private $errors = NULL;
@@ -33,7 +33,8 @@ class AuthController extends Controller
 		{
             $this->user = (new User())->getById($userId);
             if( $this->user != NULL )
-				$this->logged_in = true;
+                $this->logged_in = true;
+                $this->user_id = $userId;
 		}
 		
 		//session failed, try cookies
@@ -166,5 +167,26 @@ class AuthController extends Controller
         $this->logged_in = FALSE;
         setcookie($this->cookie_prefix.'Logged', $this->logged_in, TIME_NOW - 3600); 
 		Helper::redirect('/');
-	}
+    }
+    
+    public function loggedCheck()
+    {
+        if (!$this->logged_in === true) {
+            $response = array(
+                    'r' => 'fail',
+                    'url' => '/login'
+                );
+        } else {
+            $user = (new User)->getById($this->user_id);
+            $response = [
+                'phone_number' => $user->phone_number,
+                'last_name' => $user->last_name,
+                'first_name' => $user->first_name
+            ];
+            
+        }
+
+        echo json_encode($response);
+        exit;
+    }
 }

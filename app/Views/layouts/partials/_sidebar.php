@@ -25,7 +25,7 @@
           <a href="#" class="clear-cart">Clear Cart</a>
         </li>
         <li>
-          <a href="#" class="check-out">Checkout</a>
+          <a href="#" class="check-out checkout__trigger">Checkout</a>
         </li>
         <li>
           <a href="#" class="article">Continue Shopping</a>

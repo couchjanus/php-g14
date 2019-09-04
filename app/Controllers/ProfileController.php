@@ -2,7 +2,7 @@
 
 require_once MODELS.'/User.php';
 require_once CORE.'/Session.php';
-
+require_once MODELS.'/Order.php';
 /**
  * ProfileController.php
  * Контроллер для authetication users
@@ -15,7 +15,6 @@ class ProfileController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $session_id = Session::init('Profile');
         $userId = Session::get('userId');
         $this->user = (new User())->getById($userId);
     }
@@ -28,7 +27,6 @@ class ProfileController extends Controller
     public function index()
     {
         $userId = Session::get('userId');
-
         if (!$this->user) {
             Helper::redirect('/login');
         }
@@ -52,7 +50,7 @@ class ProfileController extends Controller
     {
         $title = 'Личный кабинет ';
         $user = $this->user;
-        $this->_view->renderView('profile/edit', compact('user', 'title'));
+        $this->view->render('profile/edit', compact('title', 'user'));
     }
 
     public function update()
@@ -83,7 +81,30 @@ class ProfileController extends Controller
 
     public function ordersList()
     {
-        
+        $orders = (new Order)->getOrdersListByUserId($this->user->id);
+        $title = 'Личный кабинет ';
+        $subtitle = 'Ваши заказы ';
+        $user = $this->user;
+        $this->view->render('profile/orders', compact('user', 'orders', 'title', 'subtitle'));
+    }
+
+    public function ordersView($vars)
+    {
+        extract($vars);
+        $order = (new Order)->getUserOrderById($id);
+
+        $title = 'Личный кабинет ';
+        $subtitle = 'Ваш заказ #'.$order->id;
+
+        // Преобразуем JSON  строку продуктов и их кол-ва в массив
+        $orders = json_decode(json_decode($order->products, true));
+        $products = [];
+
+        for ($i=0; $i<count($orders); $i++) {
+            array_push($products, (array)$orders[$i]);
+        }
+        $user = $this->user;
+        $this->view->render('profile/order', compact('user', 'orders', 'order', 'title', 'subtitle', 'products'));
     }
   
 }

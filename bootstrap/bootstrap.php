@@ -42,12 +42,7 @@ require_once CORE.'/Request.php';
 require_once CORE.'/Router.php';
 Session::init('Init');
 
-// $router = new Router();
-// $router->direct(getURI());
-
 const ROUTES = CONFIG.'/routes'.EXT;
 
-Router::init(ROUTES)->direct(getURI());
-
-// Router::load(ROUTES)
-//     ->direct(Request::uri(), Request::method());
+Router::init(ROUTES)
+    ->direct(Request::uri(), Request::method());

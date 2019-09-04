@@ -10,9 +10,9 @@
       </div>
       <div class="item">$<span class="item-price">00.00</span></div>
     </div>
-  </template>
+</template>
 
-  <template id="productItem">
+<template id="productItem">
     <div class="col-md-4">
       <div class="card mb-4 box-shadow">
         <div class="win"><h2>You are win!</h2></div>
@@ -34,9 +34,9 @@
         </div>
       </div>
     </div>
-  </template>
+</template>
 
-  <template id="carouselItem">
+<template id="carouselItem">
     <div class="carousel-detail-item">
       <div class="carousel-item__image"></div>
       <div class="carousel-item__info">
@@ -50,9 +50,9 @@
           </div>
       </div>
   </div>
-  </template>
+</template>
 
-  <template id="productDetail">
+<template id="productDetail">
     <div class="carousel-wrapper">
         <div class="carousel-detail">
             <div class="carousel__nav">
@@ -70,4 +70,72 @@
             
         </div>
     </div>
-  </template>
+</template>
+
+
+<template id="order-form">
+    <div class="form-wrapper">
+        <div class="order-card">
+            <div class="step"">
+            <div class=" title">
+                <h1>Finalize Order</h1>
+            </div>
+        </div>
+        <div class="content" id="final_products">
+            <div class="left" id="ordered">
+                <div class="products">
+                    <div class="product_details">
+                        <span class="product_name">Your Order:</span>
+                        <span class="price">00.00</span>
+                    </div>
+                </div>
+                <div class="totals">
+                    <span class="subtitle">Subtotal <span id="sub_price">$45.00</span></span>
+                    <span class="subtitle">Tax <span class="sub_tax" id="sub_tax">$2.00</span></span>
+                    <span class="subtitle">Shipping <span class="sub_ship id="sub_ship">$4.00</span></span>
+                </div>
+                <div class="final">
+                    <span class="title">Total <span id="calculated_total">$51.00</span></span>
+                </div>
+            </div>
+            <div class="right" id="reviewed">
+
+                <div class="billing">
+                    <span class="title">Billing Information:</span>
+                    <form class="go-right" id="payorder">
+                        <div>
+                            <input type="name" name="first_name" value="" id="first_name" placeholder="John"
+                                data-trigger="change" data-validation-minlength="1" data-type="name"
+                                data-required="true" data-error-message="Enter Your First Name" /><label
+                                for="first_name">First Name</label>
+                        </div>
+                        <div>
+                            <label for="last_name">Last Name</label>
+                            <input type="name" name="last_name" value="" id="last_name" placeholder="Smith"
+                                data-trigger="change" data-validation-minlength="1" data-type="name"
+                                data-required="true" data-error-message="Enter Your Last Name" /><label
+                                for="last_name">Last Name</label>
+                        </div>
+                        <div>
+                            <input type="phone" name="phone_number" value="" id="phone_number"
+                                placeholder="(555)-867-5309" data-trigger="change" data-validation-minlength="1"
+                                data-type="number" data-required="true"
+                                data-error-message="Enter Your Telephone Number" /><label
+                                for="phone_number">Telephone</label>
+                        </div>
+                    </form>
+
+                </div>
+
+
+                <div class="complete">
+                    <a class="big_button" id="complete" href="#">Complete Order</a>
+                    <span class="sub">By selecting this button you agree to the purchase and subsequent payment for
+                        this order.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</template>

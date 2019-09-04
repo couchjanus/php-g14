@@ -28,16 +28,16 @@
             </ul>
           </div>
           <?php if (Helper::isGuest()) :?>
-          <a href="/login"><button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <a href="/login"><button type="button" class="btn btn-primary">
             <span><i class="fas fa-user-plus"></i></span>
           </button></a>
           
           <?php else :?>
-          <a href="/profile"><button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <a href="/profile"><button type="button" class="btn btn-primary">
             <i class="fas fa-address-card"></i>
           </button></a>
           
-          <a href="/logout"><button type="button" id="sidebarCollapse" class="btn btn-primary">
+          <a href="/logout"><button type="button" class="btn btn-primary">
           <i class="fas fa-sign-out-alt"></i>
           </button></a>
           <?php endif;?>

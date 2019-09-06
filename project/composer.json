@@ -1,0 +1,20 @@
+{
+    "name": "janus/project",
+    "description": "Peculiar shopaholic",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "couch Janus",
+            "email": "couchjanus@gmail.com"
+        }
+    ],
+    "autoload": {
+		"psr-4": {
+            "App\\": "app",
+            "Core\\": "core"
+		}
+	},
+    "minimum-stability": "beta",
+    "require": {}
+}
